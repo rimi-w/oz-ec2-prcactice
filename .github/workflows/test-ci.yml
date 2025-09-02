@@ -1,0 +1,22 @@
+# Runner가 실행되고 있는 경로, Runner를 실행시키고 있는 계정(= 사용자) 출력
+# test-ci.yml 파일에 정의한 환경변수 DOCKER_CONTAINER_NAME 출력
+# 3) 위 test-ci.yml의 명령어는 반드시 우리가 EC2 내부에 설치한 Runner에서 동작되어야 합니다. (아래 사진파일 참고)
+
+name: test-ci
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_CONTAINER_NAME: "test"
+
+jobs:
+  warm-up:
+    runs-on: self-hosted
+    steps:
+      - name: Who owns this runner?
+        run: pwd
+
+      - name: Environment variable reference.
+        run: echo "DOCKER_CONTAINER_NAME = ${{env.DOCKER_CONTAINER_NAME}}"
