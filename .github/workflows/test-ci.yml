@@ -20,5 +20,5 @@ jobs:
           pwd
           whoami
 
-      - name: Environment variable reference.
+      - name: Environment variable reference
         run: echo "DOCKER_CONTAINER_NAME = ${{env.DOCKER_CONTAINER_NAME}}"
