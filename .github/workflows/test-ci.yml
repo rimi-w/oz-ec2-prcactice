@@ -27,4 +27,4 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Status of Docker Container
-        run: docker ps
+        run: sudo docker ps
