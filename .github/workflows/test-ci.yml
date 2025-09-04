@@ -22,3 +22,9 @@ jobs:
 
       - name: Environment variable reference
         run: echo "DOCKER_CONTAINER_NAME = ${{env.DOCKER_CONTAINER_NAME}}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Status of Docker Container
+        run: docker ps
